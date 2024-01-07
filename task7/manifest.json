@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Weather Extension",
+    "description": "An app that displays weather",
+    "version": "0.0.1",
+    "action": {
+        "default_popup": "/popup.html",
+        "default_icon": "/images_128.png"
+    },
+    "icons": {
+        "16": "/images_16.png",
+        "48": "/images_48.png",
+        "128": "/images_128.png"
+    },
+    "permissions": ["activeTab"]
+}

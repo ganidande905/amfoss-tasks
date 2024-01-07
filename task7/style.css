@@ -1,0 +1,78 @@
+body {
+    width: 400px;
+    height: 400px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background: rgba(176, 209, 248, 0.85);
+    border: 5px solid #1e2432; /* Border around the entire body */
+    padding: 10px; /* Add padding for better visual appearance */
+    border-style:double;
+}
+
+p {
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05cm;
+    border-bottom: px solid #1e2432; /* Border below each paragraph */
+    padding-bottom: 5px; /* Add padding for better visual appearance */
+    padding-top: 20px;
+}
+
+
+sup {
+    font-size: 0.3cm;
+    
+}
+
+.location {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-weight: bold;
+    border-top: 5px solid #1e2432; /* Border above the location section */
+    padding-top: 5px; /* Add padding for better visual appearance */
+    border-bottom: 5px solid #1e2432;
+}
+
+.location span {
+    font-size: 1.9em;
+}
+
+.location sup {
+    height: 0.8em center;
+    width: 0.2em center;
+    margin-left: 0.40em;
+    color: #fff;
+    background:rgba(176, 209, 248, 0.85);
+    padding-top: 10px;
+}
+
+.temp {
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #1e2432;
+    text-align: center;
+    border-top: 2px solid #1e2432; /* Border above the temp section */
+    padding-top: 5px; /* Add padding for better visual appearance */
+    border-bottom: 2px solid #1e2432;
+}
+
+.temp_feel_like {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.6rem;
+    margin-top: 10px;
+    color: #1e2432;
+    text-align: center;
+    border-top: 2px solid #1e2432; /* Border above the temp_feel_like section */
+    padding-top: 5px; /* Add padding for better visual appearance */
+    border-bottom: 2px solid #1e2432;
+    
+}
