@@ -1,0 +1,22 @@
+.header-container {
+    background-color: rgba(9.8, 9.8, 43.9, 0.8); /* Black color with 50% transparency */
+    padding: 27px;
+}
+h1 {
+    margin: 0;
+    align-items:center;
+}
+.shop img {
+    border: 2px solid #000; /* 2 pixels solid black border */
+    border-radius: 10%;
+    border-bottom: 26px solid rgb(55, 46, 184);
+}
+.text-overlay {
+
+    color: white;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 10px; /* Adding padding for better visibility */
+  }
+
