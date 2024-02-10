@@ -9,6 +9,7 @@ body {
 .header-container {
     background-color: rgba(9.8, 9.8, 43.9, 0.8); /* Black color with 50% transparency */
     padding: 27px;
+    transform: translateY(-10px);
 }
 
 h1 {
