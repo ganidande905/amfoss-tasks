@@ -1,18 +1,54 @@
-body {
-    padding: 0;
-    background-color: black;
-    background-image: url(assets/backdrop.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; /* Ensure the body takes up the full height of the viewport */
-}
-.header-container {
-    background-color: rgba(9.8, 9.8, 43.9, 0.8); /* Black color with 50% transparency */
-    padding: 27px;
-    transform: translateY(-10px);
+body{
+    background-image: url("assets/backdrop.png");
+    background-color:rgb(15, 15, 54);
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
 }
 
-h1 {
-    margin: 0;
-    align-items:center;
+ul{
+    list-style-type:none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color:rgba(11, 11, 33,0.8) ;
+    transform: translateY(-8px);
+
+}
+li{
+    float: right;
+}   
+
+li a {
+    display: block;
+    padding: 10px;
+} 
+
+
+button{
+   width: 180px;
+   height:265px;
+   border-radius: 15px;
+   background-color:rgb(11, 11, 33);
+   background-attachment: fixed;
+   border-bottom-width:20px;
+   border-bottom-color:#0062ff;
+   border-left: 0px;
+   border-top:0px ;
+   border-right: 0px;
+   position: relative;
+   overflow: hidden;
+}
+.column2spacing{
+  margin-left: 15px;
+}
+.column3spacing{
+    margin-left: 15px;
+}
+.column4spacing{
+    margin-left: 45px;
+}  
+.rowspacing{
+    margin-left: 450px;
+    margin-top: 15px;
 }
