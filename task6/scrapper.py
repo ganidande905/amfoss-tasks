@@ -1,27 +1,16 @@
+# scraper.py
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.espncricinfo.com/live-cricket-score"
+def scrape_live_scores():
+    URL = "https://www.espncricinfo.com/live-cricket-score"
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    
+    team1 = soup.find('p', class_='ds-text-tight-m ds-font-bold ds-capitalize ds-truncate').text
+    team2 = soup.find('div', class_='ds-flex ds-items-center ds-min-w-0 ds-mr-1').text
+    overs = soup.find('span', class_='ds-text-compact-xs ds-mr-0.5').text
+    summary = soup.find('p', class_='ds-text-tight-s ds-font-regular ds-truncate ds-text-typo').text
 
-try:
-    response = requests.get(url)
-    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx or 5xx)
-
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    team1_name = soup.find('span', class_='ds-flex ds-items-center ds-min-w-0 ds-mr-1')
-    team2_name = soup.find('span', class_='ds-flex ds-items-center ds-min-w-0 ds-mr-1')
-    team1_score = soup.find('span', class_='ds-text-compact-s ds-text-typo ds-text-right ds-whitespace-nowrap fadeIn-exit-done')
-    team2_score = soup.find('span', class_='s-text-compact-s ds-text-typo ds-text-right ds-whitespace-nowrap fadeIn-exit-done')
-    match_summary = soup.find('div', class_='ds-text-tight-s ds-font-regular ds-truncate ds-text-typo')
-
-    if team1_name and team2_name and team1_score and team2_score and match_summary:
-        print(f"Team 1: {team1_name.text.strip()} {team1_score.text.strip()}")
-        print(f"Team 2: {team2_name.text.strip()} {team2_score.text.strip()}")
-        print(f"Match Summary: {match_summary.text.strip()}")
-    else:
-        print("One or more elements not found. Check class names or HTML structure.")
-
-except requests.exceptions.RequestException as e:
-    print(f"Failed to fetch the ESPN Cricket webpage. Error: {e}")
+    return {'team1': team1, 'team2': team2, 'over': overs, 'summary': summary}
 
