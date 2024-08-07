@@ -1,6 +1,6 @@
 ## SELF INTRO
 Hello everyone<br>
-I'm Ganeswar, a first-year Computer Science Engineering (CSE) student. My academic journey is fueled by a genuine passion for programming and the art of crafting streamlined solutions to complex challenges.I find immense satisfaction in distilling intricate problems into elegant code.
+I'm Ganeswar, a second-year Computer Science Engineering (CSE) student. My academic journey is fueled by a genuine passion for programming and the art of crafting streamlined solutions to complex challenges.I find immense satisfaction in distilling intricate problems into elegant code.
 I am eager to contribute my skills and enthusiasm to collaborative projects within the open source community.
 ## INTROSPECTION
 ### WHY MUST YOU CHOOSE ME?
