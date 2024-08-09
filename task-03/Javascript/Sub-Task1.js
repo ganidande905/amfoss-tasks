@@ -1,1 +1,1 @@
-console.log("Hello, World!"); # type: ignore
+console.log("Hello, World!")

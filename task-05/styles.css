@@ -1,0 +1,122 @@
+/* General Container */
+.container {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Product Catalog Styles */
+.product-catalog {
+    width: 80%;
+    height: 350%;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Product Card Styles */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    align-items: center;
+    border-radius: 14px;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: auto;
+    height: 50%;
+    display: block; /* Ensure image fits its container */
+    margin-left: 50px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.product-card-content {
+    padding: 1rem;
+    
+}
+
+.product-card-content h2 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+    text-align: center;
+}
+
+
+
+.product-card-content .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+
+
+/* Terminal Styles */
+.terminal {
+    width: 40%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-window {
+    background-color: #000;
+    flex-grow: 1;
+    padding: 10px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.terminal-input {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    margin-right: 5px;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+/* Header and Main Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 1rem;
+}
