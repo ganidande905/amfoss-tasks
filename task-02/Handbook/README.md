@@ -40,8 +40,9 @@ I used this to get the difference between both commits for everything
 but when comparing the last second commit to the last commit I again found a code
 which i decoded to find a repo
 
-#Finally
+## Finally
 Ive cloned this repo
 and tried to run the code in the terimnal but faced an issue
 I dont know why but my github was looged out so I had to log in again and 
 then I got the final message
+<img width="1362" alt="victory" src="https://github.com/user-attachments/assets/c1760b1b-ef20-442e-803d-3ba6178b38c8">
