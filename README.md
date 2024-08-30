@@ -1,16 +1,13 @@
 ## SELF INTRO
 Hello everyone<br>
-I'm Ganeswar, a second-year Computer Science Engineering (CSE) student. My academic journey is fueled by a genuine passion for programming and the art of crafting streamlined solutions to complex challenges.I find immense satisfaction in distilling intricate problems into elegant code.
-I am eager to contribute my skills and enthusiasm to collaborative projects within the open source community.
+I'm Ganeswar, a second-year Computer Science Engineering (CSE) student. I'm from Hyderabad . I like to watch movies at my free time . Not much of a interactive person. Just chilling through to life . And I like to explore various stuff related to coding and stuff.
 ## INTROSPECTION
 ### WHY MUST YOU CHOOSE ME?
-I'm well-acquainted with coding, having navigated its intricacies for a considerable time. What fuels my enthusiasm is the joy of unraveling problems, persistently seeking solutions, and constantly striving for growth. My insatiable curiosity extends beyond just solving problems; it's a deep-seated desire to comprehend the inner workings of everything I encounter.
-In our rapidly evolving world, the generation of colossal data intrigues me. Despite this abundance, technology's ability to interpret and effectively utilize this data remains a challenge. Joining amfoss is not merely a chance but an opportunity to delve into the dynamics of our contemporary world.
-### WHAT'S YOUR PLAN FOR THE NEXT 6 MONTHS?
-Becoming better at coding in general.and also getting better in my acedemics.While working on few projects
+I’m all about coding and cracking puzzles—basically a problem-solving ninja! I’m curious about how things tick and love tackling the mountain of data we deal with. Choose me for amfoss, and you’ll get someone who’s eager to dive into tech adventures and add a dash of fun to the mix!
 ### HOW WOULD YOU CONTRIBUTE BACK TO THE CLUB?
-I will do my maximum and to the best of my abilities to aid and help the club and its members with anything. Even if it is just helping with some event or doing a project, I am ready to give my blood and sweat.
-?
+I’m all in for helping the club—whether it’s jumping into events or tackling open-source projects. I promise to bring my enthusiasm and energy to keep things lively and productive!.
+### WHAT ARE MY FIELDS OF INTEREST, AND HOW AM I PLANNING ON WORKING ON THEM?
+I’m passionate about building my own startup and exploring various platforms and technologies. Working with amfoss will give me a chance to get hands-on experience and insights that will help me grow in these areas. It’s the perfect opportunity to dive into the tech world and expand my horizons!
 # Tasks Status
 
 My task statistics are as shown-
