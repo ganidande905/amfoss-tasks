@@ -1,8 +1,5 @@
-## Overview
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components."
-
 ## Features
-- **Declarative**: React makes it easy to create interactive UIs by efficiently updating and rendering just the right components when your data changes.
+- **Declarative**: React simplifies the creation of interactive UIs by updating and rendering only the necessary components when your data changes.
 - **Learn Once, Write Anywhere**: React can render on the server using Node and power mobile apps using React Native.
 
 ## Code Overview
