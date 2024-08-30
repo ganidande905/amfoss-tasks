@@ -3,6 +3,9 @@
 ## Overview
 React is a JavaScript library for building user interfaces, primarily for single-page applications. It allows developers to create large web applications that can update and render efficiently with minimal coding. React is maintained by Facebook and a community of individual developers and companies.
 
+## Usage
+React can be used to create both simple components and complex user interfaces. The basic building blocks of a React application are components, which can be defined as JavaScript functions or classes.
+
 ## Prerequisites
 To work with React, you should have:
 - [Node.js](https://nodejs.org/) installed on your machine.
@@ -31,11 +34,3 @@ To work with React, you should have:
     ```
     This command bundles React in production mode and optimizes the build for the best performance.
 
-## Usage
-React can be used to create both simple components and complex user interfaces. The basic building blocks of a React application are components, which can be defined as JavaScript functions or classes.
-
-## Contributing
-React is open source, and contributions are welcome. To contribute, please check the [Contributing Guide](CONTRIBUTING.md) in the repository.
-
-## License
-React is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
