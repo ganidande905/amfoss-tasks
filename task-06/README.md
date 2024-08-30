@@ -1,7 +1,7 @@
 # React
 
 ## Overview
-React is a JavaScript library for building user interfaces, primarily for single-page applications. It allows developers to create large web applications that can update and render efficiently with minimal coding. React is maintained by Facebook and a community of individual developers and companies.
+React is a JavaScript library. It allows developers to create large web applications that can update and render efficiently with minimal coding. React is maintained by Facebook and a community of individual developers and companies.
 
 ## Usage
 React can be used to create both simple components and complex user interfaces. The basic building blocks of a React application are components, which can be defined as JavaScript functions or classes.
