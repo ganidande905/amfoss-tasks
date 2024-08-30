@@ -1,7 +1,7 @@
 ```
 .
 ├── node_modules
-│   ├── packages
+│   └── packages
 ├── public
 │   ├── favicon.ico
 │   ├── index.html
