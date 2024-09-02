@@ -21,7 +21,7 @@ My task statistics are as shown-
 | [Task-04](https://github.com/ganidande905/amfoss-tasks/tree/main/task-04)     | Gopal and his PagePal| Completed |
 | [Task-05](https://github.com/ganidande905/amfoss-tasks/tree/main/task-05)   | Terminal Trolly| Partially Done|
 | [Task-06](https://github.com/ganidande905/amfoss-tasks/tree/main/task-06)    | Open Docs| Completed |
-| [Task-07](https://github.com/ganidande905/amfoss-tasks/tree/main/task-07)    | Pirates Dilemma| Partially Done |
+| [Task-07](https://github.com/ganidande905/amfoss-tasks/tree/main/task-07)    | Pirates Dilemma| Not Completed |
 | [Task-08](https://github.com/ganidande905/amfoss-tasks/tree/main/task-08)   | Blog Burst| Completed |
 | [Task-09](https://github.com/ganidande905/amfoss-tasks/tree/main/task-09)   | HERO-DEX!| Partially Done |
 | [Task-10](https://github.com/ganidande905/amfoss-tasks/tree/main/task-10)   | Operation Pixel Merge | Partially Done |

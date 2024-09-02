@@ -34,6 +34,7 @@ def getting_started(message):
 
 @bot.message_handler(commands=['help'])
 def help_commands(message):
+    
     help_message =(
         "Here’s the 411 on what I can do for you:\n\n"
         "/start - Kick things off with a warm welcome!\n"

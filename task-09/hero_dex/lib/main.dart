@@ -163,7 +163,7 @@ class SuperheroSearchDelegate extends SearchDelegate {
         onPressed: () {
           query = '';
         },
-      ),
+      )
     ];
   }
 }
