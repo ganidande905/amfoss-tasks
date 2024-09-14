@@ -1,177 +1,159 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var terminalOutput = document.querySelector('.terminal-output');
-    var terminalInput = document.querySelector('input[type="text"]');
-    var productCatalog = document.querySelector('.product-catalog');
-    var products = [];
+    const productContainer = document.querySelector('.products');
+    const terminalInput = document.querySelector('.terminal-input input');
+    const terminalOutput = document.querySelector('.terminal-output');
+    let products = [];
+    let cart = [];
+    fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then(fetchedProducts => {
+            products = fetchedProducts;
+            let productHTML = '';
+            products.forEach(product => {
+                productHTML += `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.title}">
+                        <h2>${product.title}</h2>
+                        <span class="price">$${product.price}</span>
+                        <div class="product-icons">
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                `;
+            });
+            productContainer.innerHTML = productHTML;
+        })
+        .catch(error => console.log('Error:', error));
 
-    function handleInput(command) {
-        var parts = command.trim().split(' ');
-        var action = parts[0];
-        var args = parts.slice(1);
+   
+    terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const command = terminalInput.value.trim();
+            executeCommand(command);
+            terminalInput.value = '';
+        }
+    });
 
-        switch (action) {
+    function executeCommand(command) {
+        let output = '';
+        const parts = command.toLowerCase().split(' ');
+        const action = parts[0];
+        const args = parts.slice(1);
+
+        switch(action) {
             case 'help':
-                viewCommand();
+                output = `
+Available Commands:
+- help: Show this help message\n
+- list: Display all available products\n
+- details 'product_id': View details of a specific product\n
+- add 'product_id': Add a product to the cart\n
+- remove 'product_id': Remove a product from the cart\n
+- cart: View the current items in your cart\n
+- buy: Proceed to checkout\n
+- clear: Clear the terminal screen\n
+- search 'product_name': Search for a product by name\n
+- sort 'price/name': Sort products by price or name\n
+                `;
                 break;
             case 'list':
-                listProducts();
+                output = 'Available Products:\n';
+                products.forEach((product, index) => {
+                    output += `${product.id}: ${product.title} - $${product.price}\n`;
+                });
                 break;
             case 'details':
-                fetchProductDetails(args[0]);
-                break;
-            case 'add':
-                addToCart(args[0]);
-                break;
-            case 'remove':
-                removeFromCart(args[0]);
-                break;
-            case 'cart':
-                viewCart();
-                break;
-            case 'clear':
-                terminalOutput.innerHTML = '';
-                break;
-            case 'search':
-                searchProducts(args.join(' '));
-                break;
-            case 'sort':
-                sortProducts(args[0]);
-                break;
-            case 'buy':
-                buy();
-                break;
-            default:
-                terminalOutput.innerHTML += 'Invalid command: ' + command + '\n';
-                break;
-        }
-
-        terminalInput.value = '';
-    }
-
-    function viewCommand() {
-        terminalOutput.innerHTML += `
-Available Commands:
-- help: Show this help message
-- list: Display all available products
-- details 'product_id': View details of a specific product
-- add 'product_id': Add a product to the cart
-- remove 'product_id': Remove a product from the cart
-- cart: View the current items in your cart
-- buy: Proceed to checkout
-- clear: Clear the terminal screen
-- search 'product_name': Search for a product by name
-- sort 'price/name': Sort products by price or name
-\n`;
-    }
-
-    function listProducts() {
-        if (products.length === 0) {
-            terminalOutput.innerHTML += 'No products available\n';
-            return;
-        }
-        var output = products.map(function(product) {
-            return product.id + ': ' + product.title + ' - $' + product.price;
-        }).join('\n');
-        terminalOutput.innerHTML += output + '\n';
-    }
-
-    function fetchProductDetails(productId) {
-        var product = products.find(function(p) {
-            return p.id == productId;
-        });
-        if (product) {
-            terminalOutput.innerHTML += `
+                const productId = args[0];
+                const product = products.find(p => p.id == productId);
+                if (product) {
+                    output = `
 Title: ${product.title}
 Description: ${product.description}
 Price: $${product.price}
 Category: ${product.category}
 Rating: ${product.rating ? product.rating.rate + ' (' + product.rating.count + ' reviews)' : 'No rating'}
-Image: ${product.image}\n`;
-        } else {
-            terminalOutput.innerHTML += 'Product not found\n';
+Image: ${product.image}
+                    `;
+                } else {
+                    output = 'Product not found';
+                }
+                break;
+            case 'add':
+                const addId = args[0];
+                const addProduct = products.find(p => p.id == addId);
+                if (addProduct) {
+                    cart.push(addProduct);
+                    output = `Added ${addProduct.title} to cart`;
+                } else {
+                    output = 'Product not found';
+                }
+                break;
+            case 'remove':
+                const removeId = args[0];
+                const removeIndex = cart.findIndex(p => p.id == removeId);
+                if (removeIndex > -1) {
+                    const removedProduct = cart.splice(removeIndex, 1)[0];
+                    output = `Removed ${removedProduct.title} from cart`;
+                } else {
+                    output = 'Product not in cart';
+                }
+                break;
+            case 'cart':
+                if (cart.length === 0) {
+                    output = 'Cart is empty';
+                } else {
+                    output = 'Items in Cart:\n';
+                    cart.forEach((item, index) => {
+                        output += `${index + 1}. ${item.title} - $${item.price}\n`;
+                    });
+                }
+                break;
+            case 'buy':
+                if (cart.length === 0) {
+                    output = 'Cart is empty. Add items to cart before buying.';
+                } else {
+                    output = 'Successfully purchased\n';
+                    cart = []; 
+                }
+                break;
+            case 'search':
+                const query = args.join(' ');
+                const filteredProducts = products.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
+                output = filteredProducts.length > 0
+                    ? filteredProducts.map(p => `${p.id}: ${p.title} - $${p.price}`).join('\n')
+                    : 'No products found';
+                break;
+            case 'sort':
+                const criteria = args[0];
+                let sortedProducts;
+                if (criteria === 'price') {
+                    sortedProducts = products.slice().sort((a, b) => a.price - b.price);
+                } else if (criteria === 'name') {
+                    sortedProducts = products.slice().sort((a, b) => a.title.localeCompare(b.title));
+                } else {
+                    output = 'Invalid sort criteria';
+                    displayOutput(output);
+                    return; 
+                }
+                output = sortedProducts.map(p => `${p.id}: ${p.title} - $${p.price}`).join('\n');
+                break;
+            case 'clear':
+                terminalOutput.innerHTML = '';
+                return; 
+            default:
+                output = `Command not recognized: ${command}`;
+                break;
         }
+
+        displayOutput(output);
     }
 
-    function searchProducts(query) {
-        var filteredProducts = products.filter(function(p) {
-            return p.title.toLowerCase().includes(query.toLowerCase());
-        });
-        var output = filteredProducts.length > 0
-            ? filteredProducts.map(function(p) {
-                return p.id + ': ' + p.title + ' - $' + p.price;
-            }).join('\n')
-            : 'No products found';
-        terminalOutput.innerHTML += output + '\n';
+    function displayOutput(output) {
+        const newLine = document.createElement('div');
+        newLine.innerHTML = output.replace(/\n/g, '<br>'); 
+        terminalOutput.appendChild(newLine);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
     }
-
-    function sortProducts(criteria) {
-        var sortedProducts;
-        if (criteria === 'price') {
-            sortedProducts = products.slice().sort(function(a, b) {
-                return a.price - b.price;
-            });
-        } else if (criteria === 'name') {
-            sortedProducts = products.slice().sort(function(a, b) {
-                return a.title.localeCompare(b.title);
-            });
-        } else {
-            terminalOutput.innerHTML += 'Invalid sort criteria: ' + criteria + '\n';
-            return;
-        }
-        var output = sortedProducts.map(function(p) {
-            return p.id + ': ' + p.title + ' - $' + p.price;
-        }).join('\n');
-        terminalOutput.innerHTML += output + '\n';
-    }
-
-    function addToCart(productId) {
-        terminalOutput.innerHTML += 'Added product ' + productId + ' to cart\n';
-    }
-
-    function removeFromCart(productId) {
-        terminalOutput.innerHTML += 'Removed product ' + productId + ' from cart\n';
-    }
-
-    function viewCart() {
-        terminalOutput.innerHTML += 'Viewing cart\n';
-    }
-
-    function buy() {
-        terminalOutput.innerHTML += 'Proceeding to checkout\n';
-    }
-
-    function fetchProducts() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://fakestoreapi.com/products');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                products = JSON.parse(xhr.responseText);
-                var productCards = products.map(function(product) {
-                    return '<div class="product-card">' +
-                        '<img src="' + product.image + '" alt="' + product.title + '">' +
-                        '<div class="product-card-content">' +
-                            '<h2>' + product.title + '</h2>' +
-                            
-                            '<div class="price">$' + product.price + '</div>' +
-                            
-                        '</div>' +
-                    '</div>';
-                }).join('');
-                productCatalog.innerHTML = productCards;
-            } else {
-                console.error('Error fetching products:', xhr.status);
-            }
-        };
-        xhr.send();
-    }
-
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            var command = terminalInput.value.trim();
-            handleInput(command);
-        }
-    });
-
-    fetchProducts();
+    
 });
